@@ -1,1 +1,34 @@
 @import "tailwindcss";
+
+@theme {
+    --color-sand: #FCFAF7;
+    --breakpoint-mobile-s: 320px;
+    --breakpoint-mobile-m: 375px;
+    --breakpoint-mobile-l: 425px;
+    --breakpoint-tablet: 768px;
+    --backdrop-blur-custom: 7px;
+}
+
+@layer components {
+    .flex-center {
+        @apply flex justify-center items-center;
+    }
+}
+@layer base {
+    body {
+        @apply bg-sand;
+    }
+}
+
+
+@font-face {
+  font-family: 'SUIT-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2')
+    format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'SUIT-Regular', sans-serif;
+}
