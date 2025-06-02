@@ -1,10 +1,11 @@
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 
+import { ProfileBio } from './profile-bio';
 import { ProfileEditButton } from './profile-edit-button';
 
 export const UserInfo = () => {
-  const [bio, setBio] = useState(
+  const [bio, setBio] = useState<string>(
     '안녕하세요.안녕하세요.안녕하세요.안녕하세요.안녕하세요.안녕하세요.안녕하세요.안녕하세요.안녕하세요.안녕하세요.'
   );
   const [openBio, setOpenBio] = useState(false);
@@ -19,7 +20,7 @@ export const UserInfo = () => {
   );
 
   return (
-    <div className="backdrop-blur-custom bg-sand/30 shadow-sand/30 flex-center mx-auto h-fit w-full flex-col gap-2 rounded-xl py-4 text-xs font-thin text-white shadow">
+    <div className="backdrop-blur-custom bg-sand/30 shadow-sand/30 flex-center mx-auto h-fit w-full flex-col gap-2 rounded-xl pt-6 pb-4 text-xs font-thin text-white shadow">
       <div className="aspect-square w-25 overflow-hidden rounded-full">
         <img
           alt="임시 프로필"
@@ -48,11 +49,7 @@ export const UserInfo = () => {
         </div>
       </div>
       <ProfileEditButton />
-      {openBio && (
-        <p className="fixed top-[50%] left-[50%] w-100 -translate-[50%] bg-[#121212]/80 p-2.5 text-center">
-          {bio}
-        </p>
-      )}
+      {openBio && <ProfileBio bio={bio} />}
     </div>
   );
 };

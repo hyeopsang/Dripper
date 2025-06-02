@@ -7,7 +7,7 @@ export const NavTab = () => {
   const isFeedActive = location.pathname === `/profile`;
   const isTagActive = location.pathname.includes(`/profile/tag`);
   return (
-    <nav className="grid w-full grid-cols-2 border-[#121212]/15 text-[#121212]/15">
+    <nav className="grid w-full grid-cols-2 border-[#c1c1c1] text-[#c1c1c1]">
       <Link
         to={'/profile'}
         className={`${isFeedActive ? 'text-[#121212]' : ''} place-items-center border-b-2 py-2.5`}

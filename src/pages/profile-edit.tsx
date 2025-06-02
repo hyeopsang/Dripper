@@ -1,7 +1,19 @@
+import { useState } from 'react';
+
+import { BioEdit } from '../components/profileEdit/bio-edit';
+import { NickNameEdit } from '../components/profileEdit/nickname-edit';
+import { PhotoEdit } from '../components/profileEdit/photo-edit';
+
 export const ProfileEdit = () => {
+  const [profilePhoto, setProfilePhoto] = useState<File | undefined>(undefined);
   return (
-    <main className="mx-auto h-dvh max-w-200">
-      <img className="w-full" alt="프로필 배경" src="/img/cat.jpg" />
-    </main>
+    <section className="mx-auto h-dvh max-w-200">
+      <form>
+        <PhotoEdit setProfilePhoto={setProfilePhoto} />
+        <NickNameEdit />
+        <BioEdit />
+        <button>완료</button>
+      </form>
+    </section>
   );
 };
