@@ -6,7 +6,8 @@
     --breakpoint-mobile-m: 375px;
     --breakpoint-mobile-l: 425px;
     --breakpoint-tablet: 768px;
-    --backdrop-blur-custom: 7px;
+    --backdrop-blur-custom: 10px;
+    --backdrop-blur-custom2: 20px;
 }
 
 @layer components {
@@ -17,6 +18,12 @@
 @layer base {
     body {
         @apply bg-sand;
+    }
+    h2 {
+        @apply text-base sm:text-lg md:text-xl font-semibold;
+    }
+    p {
+      @apply text-sm sm:text-base md:text-lg font-normal;
     }
 }
 

@@ -1,36 +1,32 @@
-import React from 'react';
-
-import { FormattedImage } from '../../lib/formattedImage';
+import { useProfileStore } from '../../stores/useProfileStore';
 
 interface PhotoEditProps {
-  setProfilePhoto: React.Dispatch<React.SetStateAction<File | undefined>>;
+  onOpenPhotoModal: () => void;
 }
 
-export const PhotoEdit = ({ setProfilePhoto }: PhotoEditProps) => {
-  const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      try {
-        const formatted = await FormattedImage({ file });
-        setProfilePhoto(formatted);
-      } catch (err) {
-        console.error('이미지 포맷 변환 실패:', err);
-      }
-    }
-  };
+export const PhotoEdit = ({ onOpenPhotoModal }: PhotoEditProps) => {
+  const { profileImage } = useProfileStore();
 
   return (
-    <div>
-      <label htmlFor="photoInput">
-        <img alt="프로필 사진 편집" />
-      </label>
-      <input
-        id="photoInput"
-        type="file"
-        accept="image/*"
-        onChange={handleImageChange}
-        style={{ display: 'none' }}
-      />
+    <div className="flex flex-col items-center">
+      <div className="flex aspect-square w-1/2 items-center justify-center overflow-hidden rounded-full bg-[#c1c1c1]">
+        {profileImage ? (
+          <img
+            src={profileImage}
+            alt="프로필 사진"
+            className="h-full w-full object-cover"
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = '';
+            }}
+          />
+        ) : (
+          <span className="text-white">사진 없음</span>
+        )}
+      </div>
+
+      <button type="button" onClick={onOpenPhotoModal}>
+        수정
+      </button>
     </div>
   );
 };
