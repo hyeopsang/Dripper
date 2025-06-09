@@ -1,4 +1,6 @@
+import { ChevronLeft } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router';
 
 import { ModalWrapper } from '../components/modal-wrapper';
 import { BioEdit } from '../components/profileEdit/bio-edit';
@@ -11,12 +13,17 @@ export const ProfileEdit = () => {
 
   return (
     <section className="mx-auto h-dvh max-w-200">
-      <form>
+      <div className="relative w-full border-b border-[#c1c1c1]/30 py-3 text-center">
+        <Link to="/profile">
+          <ChevronLeft className="absolute top-3 left-[2%] h-6 w-6" />
+        </Link>
+        <h2>프로필 편집</h2>
+      </div>
+      <div className='flex flex-col items-center justify-center gap-3 pt-3'>
         <PhotoEdit onOpenPhotoModal={() => setPhotoModal(true)} />
         <NickNameEdit />
         <BioEdit />
-        <button type="submit">완료</button>
-      </form>
+      </div>
 
       {photoModal && (
         <ModalWrapper>

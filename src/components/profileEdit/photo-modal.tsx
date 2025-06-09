@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Pencil } from 'lucide-react';
+import { Pencil, UserRound } from 'lucide-react';
 import { useState } from 'react';
 
 import { FormattedImage } from '../../lib/formattedImage';
@@ -58,11 +58,13 @@ export const PhotoModal = ({ onClose }: PhotoModalProps) => {
               className="aspect-square h-full w-full overflow-hidden rounded-full object-cover"
             />
           ) : (
-            <span className="text-sm text-white">사진 없음</span>
+            <div className='w-full h-full relative overflow-hidden rounded-full'>
+              <UserRound className="absolute -bottom-8 h-full w-full fill-white text-transparent" />
+            </div>
           )}
           <div
             onClick={() => setSelectModal(true)}
-            className="bg-sand absolute right-5 bottom-5 z-50 flex aspect-square w-10 items-center justify-center rounded-full shadow"
+            className="bg-sand absolute right-3 bottom-3 z-50 flex aspect-square w-10 items-center justify-center rounded-full shadow"
           >
             <Pencil />
           </div>

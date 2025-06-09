@@ -1,5 +1,5 @@
 import { useProfileStore } from '../../stores/useProfileStore';
-
+import { UserRound } from 'lucide-react';
 interface PhotoEditProps {
   onOpenPhotoModal: () => void;
 }
@@ -8,8 +8,8 @@ export const PhotoEdit = ({ onOpenPhotoModal }: PhotoEditProps) => {
   const { profileImage } = useProfileStore();
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="flex aspect-square w-1/2 items-center justify-center overflow-hidden rounded-full bg-[#c1c1c1]">
+    <div className="flex flex-col gap-3 items-center">
+      <div className="relative flex aspect-square w-32 items-center justify-center overflow-hidden rounded-full bg-[#c1c1c1]">
         {profileImage ? (
           <img
             src={profileImage}
@@ -20,12 +20,12 @@ export const PhotoEdit = ({ onOpenPhotoModal }: PhotoEditProps) => {
             }}
           />
         ) : (
-          <span className="text-white">사진 없음</span>
+            <UserRound className="h-full w-full text-transparent fill-white absolute -bottom-5" />
         )}
       </div>
 
-      <button type="button" onClick={onOpenPhotoModal}>
-        수정
+      <button className='text-blue-500 text-xs' type="button" onClick={onOpenPhotoModal}>
+        사진 수정
       </button>
     </div>
   );

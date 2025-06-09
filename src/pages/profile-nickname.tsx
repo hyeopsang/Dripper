@@ -16,16 +16,16 @@ export const ProfileNickName = () => {
 
   return (
     <section>
-      <div className="relative w-full border-b border-[#c1c1c1]/30 py-4 text-center">
+      <div className="relative w-full border-b border-[#c1c1c1]/30 py-3 text-center">
         <Link to="/profile-edit">
-          <ChevronLeft className="absolute top-3 left-[2%] h-8 w-8" />
+          <ChevronLeft className="absolute top-3 left-[2%] h-6 w-6" />
         </Link>
         <h2>프로필 이름</h2>
 
         <button
           type="button"
           onClick={handleSave}
-          className="absolute top-4 right-[2%] px-3 text-base text-blue-500 sm:text-lg md:text-xl"
+          className="absolute top-3 right-[2%] px-3 text-sm text-blue-500 sm:text-lg md:text-xl"
         >
           완료
         </button>
