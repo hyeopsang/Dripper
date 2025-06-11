@@ -19,7 +19,7 @@ export const ProfileEdit = () => {
         </Link>
         <h2>프로필 편집</h2>
       </div>
-      <div className='flex flex-col items-center justify-center gap-3 pt-3'>
+      <div className="flex flex-col items-center justify-center gap-4 pt-4">
         <PhotoEdit onOpenPhotoModal={() => setPhotoModal(true)} />
         <NickNameEdit />
         <BioEdit />
